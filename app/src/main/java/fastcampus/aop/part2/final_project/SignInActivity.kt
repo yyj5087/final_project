@@ -2,8 +2,14 @@ package fastcampus.aop.part2.final_project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import fastcampus.aop.part2.final_project.databinding.ActivitySignInBinding
+import fastcampus.aop.part2.final_project.datas.BasicResponse
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignInActivity : BaseActivity() {
 
@@ -20,7 +26,27 @@ class SignInActivity : BaseActivity() {
 
     override fun setupEvent() {
 
+        binding.btnLogin.setOnClickListener {
 
+            val inputEmail = binding.edtEmail.text.toString()
+            val inputPassword = binding.edtPassword.text.toString()
+
+            apiList.postRequestLogin(inputEmail, inputPassword).enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                    if(response.isSuccessful){
+
+                    }
+                    else{
+
+                    }
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            } )
+        }
     }
 
     override fun setupValues() {

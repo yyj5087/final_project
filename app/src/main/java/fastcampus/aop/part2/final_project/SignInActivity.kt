@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import fastcampus.aop.part2.final_project.databinding.ActivitySignInBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
+import fastcampus.aop.part2.final_project.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,6 +47,15 @@ class SignInActivity : BaseActivity() {
 
                         val br = response.body()!!
                         Toast.makeText(mContext, "${br.data.user.name}님, 환영합니다!", Toast.LENGTH_SHORT).show()
+
+
+                        ContextUtil.setLoginUserToken(mContext, br.data.token)
+
+
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
 
                     }
                     else{

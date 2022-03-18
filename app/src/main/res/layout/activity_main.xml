@@ -9,12 +9,15 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:text="준비"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/mainViewPager2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/menu_for_main_bottom_nev"/>
 
 
 </LinearLayout>

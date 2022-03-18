@@ -35,6 +35,9 @@ class SignInActivity : BaseActivity() {
                 override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                     if(response.isSuccessful){
 
+                        val br = response.body()!!
+                        Toast.makeText(mContext, "${br.data.user.name}님, 환영합니다!", Toast.LENGTH_SHORT).show()
+
                     }
                     else{
 

@@ -12,6 +12,7 @@
     <TextView
         android:text="준비"
         android:textSize="20dp"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

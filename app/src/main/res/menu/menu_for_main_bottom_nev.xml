@@ -3,19 +3,23 @@
 
     <item
         android:id="@+id/menuHome"
-        android:title="홈"/>
+        android:title="홈"
+        android:icon="@drawable/home_house_icon"/>
 
     <item
         android:id="@+id/menuCatelgoli"
-        android:title="카테고리"/>
+        android:title="카테고리"
+        android:icon="@drawable/categories_category_menu_menus_icon"/>
 
     <item
         android:id="@+id/menuBarket"
-        android:title="장바구니"/>
+        android:title="장바구니"
+        android:icon="@drawable/shop_business_delivery_trolley_comerce_icon"/>
 
     <item
         android:id="@+id/menuMyProfile"
-        android:title="내 정보"/>
+        android:title="내 정보"
+        android:icon="@drawable/customer_man_user_account_profile_icon"/>
 
 
 

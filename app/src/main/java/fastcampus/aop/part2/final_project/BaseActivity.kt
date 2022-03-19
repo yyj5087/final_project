@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import fastcampus.aop.part2.final_project.api.APIList
 import fastcampus.aop.part2.final_project.api.ServerAPI
-import retrofit2.create
 
 abstract class BaseActivity: AppCompatActivity() {
 
@@ -18,7 +17,7 @@ abstract class BaseActivity: AppCompatActivity() {
 
         mContext = this
 
-        val retrofit = ServerAPI.getRetrofit()
+        val retrofit = ServerAPI.getRetrofit(mContext)
         apiList = retrofit.create(APIList::class.java)
     }
 

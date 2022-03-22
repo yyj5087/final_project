@@ -25,7 +25,11 @@ interface APIList {
     ) : Call<BasicResponse>
 
     @GET("/user")
-    fun getRequestMyInfo(
-        @Header("X-Http-Token") token: String,
+    fun getRequestMyInfo() : Call<BasicResponse>
+
+    @FormUrlEncoded
+    @PUT("/user/profile")
+    fun putRequestProfileImage(
+        @Field("profile_image") pimage: String
     ) : Call<BasicResponse>
 }

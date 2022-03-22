@@ -31,11 +31,13 @@ class CategoryAdapter(
         val categoryName = row.findViewById<TextView>(R.id.categoryName)
         val categoryPrice = row.findViewById<TextView>(R.id.categoryPrice)
         val ratingBar = row.findViewById<ScaleRatingBar>(R.id.ratingBar)
+        val txtRating = row.findViewById<TextView>(R.id.txtRating)
         categoryName.text = data.name
         categoryPrice.text = data.price.toString()
 
         Glide.with(mContext).load(data.categoryImageURL).into(categoryImg)
         ratingBar.rating = data.rating.toFloat()
+        txtRating.text = data.rating.toString()
 
 
 

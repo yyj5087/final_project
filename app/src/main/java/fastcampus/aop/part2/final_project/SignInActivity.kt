@@ -46,7 +46,7 @@ class SignInActivity : BaseActivity() {
                     if(response.isSuccessful){
 
                         val br = response.body()!!
-                        Toast.makeText(mContext, "${br.data.user.name}님, 환영합니다!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, "로그인 환영합니다!", Toast.LENGTH_SHORT).show()
 
 
                         ContextUtil.setLoginUserToken(mContext, br.data.token)
@@ -59,6 +59,8 @@ class SignInActivity : BaseActivity() {
 
                     }
                     else{
+                        val er = response.errorBody()!!
+                        Toast.makeText(mContext, "아이디 및 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()
 
                     }
                 }

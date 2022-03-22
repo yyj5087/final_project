@@ -41,7 +41,7 @@ class SignUpActivity : BaseActivity() {
                         val br = response.body()!!
 
 
-                        Toast.makeText(mContext, "${br.data.user.id}번째 회원이십니다! 가입을 축하합니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, "가입을 축하합니다!", Toast.LENGTH_SHORT).show()
                         finish()
                     }
                 }

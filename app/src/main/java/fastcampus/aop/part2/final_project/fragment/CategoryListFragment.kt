@@ -41,7 +41,7 @@ class CategoryListFragment: BaseFragment() {
 
     override fun setupValue() {
 
-        mCategoryList.add(CategoryData("플레이스테이션4", 300000, 4.0, "http://img.danawa.com/prod_img/500000/888/725/img/4725888_1.jpg?shrink=330:330&_v=20210113113242"))
+        mCategoryList.add(CategoryData("소니 본체 슬림 2218B 1TB MEGA 패키지 게임 3종 + PSN3 PS4", 679000, 5.0, "https://cpng.io/wp-content/uploads/32222939613a1da7dbded36a8f4d9213db8670c55d54563f875869ea019b-1200x1200.jpg"))
         mCategoryList.add(CategoryData("휘슬주전자", 16000, 4.5, "https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/uq5ppala/de4c63bc29fb428b941fcec3349f4ce9.jpg"))
         mCategoryList.add(CategoryData("남성 봄 자켓", 56000, 3.5, "https://m.min2i.com/web/product/big/20200210/2ef31dbdc57001def88c08bc2677f7f3.jpg"))
         mCategoryList.add(CategoryData("게이밍 노트북", 1000000, 5.0, "https://www.thegear.kr/news/photo/202006/24237_35171_5919.jpg"))

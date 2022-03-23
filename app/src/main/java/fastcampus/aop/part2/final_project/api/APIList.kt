@@ -1,9 +1,8 @@
 package fastcampus.aop.part2.final_project.api
 
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import org.json.JSONObject
+import okhttp3.MultipartBody
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.http.*
 
 interface APIList {
@@ -27,9 +26,9 @@ interface APIList {
     @GET("/user")
     fun getRequestMyInfo() : Call<BasicResponse>
 
-    @FormUrlEncoded
-    @PUT("/user/profile")
-    fun putRequestProfileImage(
-        @Field("profile_image") pimage: String
+    @Multipart
+    @PUT("/user/image")
+    fun putRequestProfileImg(
+        @Part img: MultipartBody.Part
     ) : Call<BasicResponse>
 }

@@ -10,6 +10,10 @@
         <entry key="..\:/final_project/app/src/main/res/layout/activity_sign_in.xml" value="0.31211498973305957" />
         <entry key="..\:/final_project/app/src/main/res/layout/activity_sign_up.xml" value="0.24556962025316456" />
         <entry key="..\:/final_project/app/src/main/res/layout/activity_splash.xml" value="0.3619791666666667" />
+        <entry key="..\:/final_project/app/src/main/res/layout/activity_view_Item_detail.xml" value="0.36614583333333334" />
+        <entry key="..\:/final_project/app/src/main/res/layout/activity_view_detail.xml" value="0.254278728606357" />
+        <entry key="..\:/final_project/app/src/main/res/layout/activity_view_item_detail.xml" value="0.37864583333333335" />
+        <entry key="..\:/final_project/app/src/main/res/layout/activity_view_items_detail.xml" value="0.37864583333333335" />
         <entry key="..\:/final_project/app/src/main/res/layout/barket_list_item.xml" value="0.3564102564102564" />
         <entry key="..\:/final_project/app/src/main/res/layout/catecoly.xml" value="0.1875" />
         <entry key="..\:/final_project/app/src/main/res/layout/category_list.xml" value="0.15346534653465346" />
@@ -20,7 +24,7 @@
         <entry key="..\:/final_project/app/src/main/res/layout/first_main.xml" value="0.36614583333333334" />
         <entry key="..\:/final_project/app/src/main/res/layout/my_info.xml" value="0.3564102564102564" />
         <entry key="..\:/final_project/app/src/main/res/layout/my_info_list.xml" value="0.3564102564102564" />
-        <entry key="..\:/final_project/app/src/main/res/layout/view_category.xml" value="0.17721518987341772" />
+        <entry key="..\:/final_project/app/src/main/res/layout/view_category.xml" value="0.29213483146067415" />
         <entry key="..\:/final_project/app/src/main/res/menu/menu_for_main_bottom_nev.xml" value="0.36614583333333334" />
       </map>
     </option>

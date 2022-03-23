@@ -38,6 +38,7 @@ class CategoryAdapter(
         Glide.with(mContext).load(data.categoryImageURL).into(categoryImg)
         ratingBar.rating = data.rating.toFloat()
         txtRating.text = data.rating.toString()
+        categoryPrice.text = "${data.getFormattedPrice()}원"
 
 
 

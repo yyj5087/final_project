@@ -117,7 +117,7 @@ class MyInfoFragment: BaseFragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == REQ_CODE_GALLERY){
-            if(requestCode == Activity.RESULT_OK){
+            if(resultCode == Activity.RESULT_OK){
 
                 val selectedImageUri = data?.data!!
                 val file = File(URIPathHelper().getPath(mContext, selectedImageUri))

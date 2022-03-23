@@ -27,7 +27,7 @@ interface APIList {
     fun getRequestMyInfo() : Call<BasicResponse>
 
     @Multipart
-    @PUT("/user/image")
+    @PUT("/user/profile")
     fun putRequestProfileImg(
         @Part img: MultipartBody.Part
     ) : Call<BasicResponse>

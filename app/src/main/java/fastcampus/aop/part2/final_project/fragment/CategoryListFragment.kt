@@ -1,11 +1,13 @@
 package fastcampus.aop.part2.final_project.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import fastcampus.aop.part2.final_project.R
+import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
 import fastcampus.aop.part2.final_project.adapters.CategoryAdapter
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.datas.CategoryData
@@ -36,6 +38,13 @@ class CategoryListFragment: BaseFragment() {
 
 
     override fun setupEvent() {
+        binding.categoryListView.setOnItemClickListener { adapterView, view, position, l ->
+            val clickedItem = mCategoryList[position]
+
+            val myIntent = Intent(requireContext(),ViewDetailItemInfoActivity::class.java)
+            myIntent.putExtra("item", clickedItem)
+            startActivity(myIntent)
+        }
 
     }
 

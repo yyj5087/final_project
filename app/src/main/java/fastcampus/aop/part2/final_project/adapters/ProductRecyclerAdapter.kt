@@ -25,7 +25,7 @@ class ProductRecyclerAdapter(
         fun bing(data: ProductData) {
 
             categoryName.text = data.name
-            categoryPrice.text = data.original_price.toString()
+
             Glide.with(mContext).load(data.icon_url).into(categoryImg)
 
 

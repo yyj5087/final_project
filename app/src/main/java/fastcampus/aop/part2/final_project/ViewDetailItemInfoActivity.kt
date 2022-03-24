@@ -25,6 +25,12 @@ class ViewDetailItemInfoActivity : BaseActivity() {
 
     override fun setupEvent() {
 
+        binding.btnAddItem.setOnClickListener {
+
+
+
+        }
+
     }
 
     override fun setupValues() {

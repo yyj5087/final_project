@@ -60,6 +60,23 @@ class MyInfoFragment: BaseFragment() {
 
     override fun setupEvent() {
 
+        apiList.getRequestMyInfo().enqueue(object : retrofit2.Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful){
+                    val br = response.body()!!
+
+                    binding.txtNickname.text = br.data.user.name
+
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
         binding.imgProfile.setOnClickListener {
 
             val pl = object :PermissionListener{

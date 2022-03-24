@@ -31,4 +31,8 @@ interface APIList {
     fun putRequestProfileImg(
         @Part img: MultipartBody.Part
     ) : Call<BasicResponse>
+
+    @GET("/cart")
+    fun getRequestCartList(
+    ) : Call<BasicResponse>
 }

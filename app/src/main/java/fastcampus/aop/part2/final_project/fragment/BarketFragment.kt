@@ -9,12 +9,18 @@ import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.adapters.CategoryAdapter
 import fastcampus.aop.part2.final_project.databinding.BarketListItemBinding
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
+import fastcampus.aop.part2.final_project.datas.BarketData
+import fastcampus.aop.part2.final_project.datas.BasicResponse
 import fastcampus.aop.part2.final_project.datas.CategoryData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class BarketFragment: BaseFragment() {
 
     lateinit var binding: BarketListItemBinding
 
+    val mBarketList = ArrayList<BarketData>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,6 +50,21 @@ class BarketFragment: BaseFragment() {
 
 
 
+    }
+    fun getRequestCartFromServer(){
+        apiList.getRequestCartList().enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if(response.isSuccessful){
+                    val br = response.body()!!
+
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
     }
 
 }

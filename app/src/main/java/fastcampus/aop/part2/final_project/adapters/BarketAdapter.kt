@@ -23,7 +23,7 @@ class BarketAdapter(
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var tempRow = convertView
         if(tempRow == null){
-            tempRow = LayoutInflater.from(mContext).inflate(R.layout.barket_list_item, null)
+            tempRow = LayoutInflater.from(mContext).inflate(R.layout.my_add_item_list, null)
 
         }
         val row = tempRow!!

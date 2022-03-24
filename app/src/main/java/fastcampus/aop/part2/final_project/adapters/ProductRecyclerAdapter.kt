@@ -20,13 +20,18 @@ class ProductRecyclerAdapter(
 
         val categoryName = view.findViewById<TextView>(R.id.categoryName)
         val categoryPrice = view.findViewById<TextView>(R.id.categoryPrice)
-        val categoryImg = view.findViewById<ImageView>(R.id.categoryImg)
+        val productImg = view.findViewById<ImageView>(R.id.productImg)
 
         fun bing(data: ProductData) {
 
             categoryName.text = data.name
+            categoryPrice.text = data.original_price.toString()
+            categoryPrice.text = "${data.getFormattedPrice()}원"
 
-            Glide.with(mContext).load(data.icon_url).into(categoryImg)
+
+            Glide.with(mContext).load(data.image_url).into(productImg)
+
+
 
 
 

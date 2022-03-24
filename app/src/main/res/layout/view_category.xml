@@ -13,9 +13,9 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/categoryImg"
+            android:id="@+id/productImg"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 

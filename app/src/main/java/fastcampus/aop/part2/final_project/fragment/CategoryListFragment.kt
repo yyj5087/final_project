@@ -1,7 +1,6 @@
 package fastcampus.aop.part2.final_project.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +11,9 @@ import fastcampus.aop.part2.final_project.adapters.ProductRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
 import fastcampus.aop.part2.final_project.datas.ProductData
-import fastcampus.aop.part2.final_project.datas.ProductList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.E
 
 class CategoryListFragment: BaseFragment() {
 
@@ -46,6 +43,7 @@ class CategoryListFragment: BaseFragment() {
     override fun setupEvent() {
 
 
+
     }
 
     override fun setupValue() {
@@ -64,10 +62,7 @@ class CategoryListFragment: BaseFragment() {
                     val br = response.body()!!
 
 
-
-
-                    mCategoryList.clear()
-                    mCategoryList.addAll(br.data.product[].ProductList)
+                    mCategoryList.addAll(br.data.todays_hot_lists)
 
                     mProductRecyclerAdapter.notifyDataSetChanged()
 

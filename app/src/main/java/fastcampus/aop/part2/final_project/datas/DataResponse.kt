@@ -6,7 +6,7 @@ class DataResponse(
         val user: UserData,
         val token: String,
 
-        val product: List<ProductList>,
+        val todays_hot_lists: List<ProductData>,
 
 ){
 }

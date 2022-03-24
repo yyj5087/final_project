@@ -3,7 +3,7 @@
     package="fastcampus.aop.part2.final_project">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Final_project"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".CartAddActivity"
+            android:exported="false" />
         <activity
             android:name=".OrderHistoryActivity"
             android:exported="false" />

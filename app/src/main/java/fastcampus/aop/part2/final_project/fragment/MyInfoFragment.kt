@@ -17,15 +17,10 @@ import com.gun0912.tedpermission.normal.TedPermission
 import fastcampus.aop.part2.final_project.OrderHistoryActivity
 import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.SplashActivity
-import fastcampus.aop.part2.final_project.adapters.CategoryAdapter
-import fastcampus.aop.part2.final_project.databinding.BarketListItemBinding
-import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.databinding.MyInfoListBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.CategoryData
 import fastcampus.aop.part2.final_project.utils.ContextUtil
 import fastcampus.aop.part2.final_project.utils.URIPathHelper
-import okhttp3.Callback
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

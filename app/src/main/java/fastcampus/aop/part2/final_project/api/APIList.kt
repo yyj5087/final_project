@@ -35,4 +35,8 @@ interface APIList {
     @GET("/cart")
     fun getRequestCartList(
     ) : Call<BasicResponse>
+
+    @GET("/todayshot")
+    fun getRequestItem(
+    ) : Call<BasicResponse>
 }

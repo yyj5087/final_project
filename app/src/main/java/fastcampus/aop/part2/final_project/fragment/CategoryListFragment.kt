@@ -1,22 +1,25 @@
 package fastcampus.aop.part2.final_project.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
-import fastcampus.aop.part2.final_project.adapters.CategoryAdapter
+import fastcampus.aop.part2.final_project.adapters.ProductRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
-import fastcampus.aop.part2.final_project.datas.CategoryData
+import fastcampus.aop.part2.final_project.datas.BasicResponse
+import fastcampus.aop.part2.final_project.datas.ProductData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CategoryListFragment: BaseFragment() {
 
     lateinit var binding: CateloryBinding
-    lateinit var mCategoryAdapter: CategoryAdapter
-    val mCategoryList = ArrayList<CategoryData>()
+    lateinit var mProductRecyclerAdapter: ProductRecyclerAdapter
+    val mCategoryList = ArrayList<ProductData>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,32 +41,42 @@ class CategoryListFragment: BaseFragment() {
 
 
     override fun setupEvent() {
-        binding.categoryListView.setOnItemClickListener { adapterView, view, position, l ->
-            val clickedItem = mCategoryList[position]
 
-            val myIntent = Intent(requireContext(),ViewDetailItemInfoActivity::class.java)
-            myIntent.putExtra("item", clickedItem)
-            startActivity(myIntent)
-        }
 
     }
 
     override fun setupValue() {
-
-        mCategoryList.add(CategoryData("소니 본체 슬림 2218B 1TB MEGA 패키지 게임 3종 + PSN3 PS4", 679000, 5.0, "https://cpng.io/wp-content/uploads/32222939613a1da7dbded36a8f4d9213db8670c55d54563f875869ea019b-1200x1200.jpg"))
-        mCategoryList.add(CategoryData("휘슬주전자", 16000, 4.5, "https://thumbnail7.coupangcdn.com/thumbnails/remote/230x230ex/image/rs_quotation_api/uq5ppala/de4c63bc29fb428b941fcec3349f4ce9.jpg"))
-        mCategoryList.add(CategoryData("남성 봄 자켓", 56000, 3.5, "https://m.min2i.com/web/product/big/20200210/2ef31dbdc57001def88c08bc2677f7f3.jpg"))
-        mCategoryList.add(CategoryData("게이밍 노트북", 1000000, 5.0, "https://www.thegear.kr/news/photo/202006/24237_35171_5919.jpg"))
-
+        getItemFromServer()
+        mProductRecyclerAdapter = ProductRecyclerAdapter(mContext, mCategoryList)
+        binding.categoryListView.adapter = mProductRecyclerAdapter
+        binding.categoryListView.layoutManager = LinearLayoutManager(mContext)
 
 
+    }
+    fun getItemFromServer(){
+        apiList.getRequestItem().enqueue(object : Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if(response.isSuccessful){
+                    val br = response.body()!!
+
+                    mCategoryList.clear()
+                    mCategoryList.addAll(response.body()!!.data.product)
+
+                    mProductRecyclerAdapter.notifyDataSetChanged()
 
 
 
-        mCategoryAdapter = CategoryAdapter(requireContext(), R.layout.view_category, mCategoryList)
-        binding.categoryListView.adapter = mCategoryAdapter
 
 
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
     }
 
 }

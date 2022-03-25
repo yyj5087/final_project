@@ -1,6 +1,7 @@
 package fastcampus.aop.part2.final_project
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
@@ -27,12 +28,34 @@ class ViewDetailItemInfoActivity : BaseActivity() {
 
     override fun setupEvent() {
 
-        val inputKeyword = binding.number
-        apiList.getRequestAddItem(
-            mProductData.id,
-            mProductData
+        binding.plus.setOnClickListener {
+            val quantity = binding.number.text.toString().toInt()
 
-        )
+            binding.number.text = "${quantity+1}"
+
+        }
+        binding.minus.setOnClickListener {
+            val quantity = binding.number.text.toString().toInt()
+
+            binding.number.text = "${quantity-1}"
+        }
+
+
+        binding.btnAddItem.setOnClickListener {
+
+//            선택된 갯수를 Int로
+            val quantity = binding.number.text.toString().toInt()
+            apiList.getRequestAddItem(
+                mProductData.id,
+                quantity,
+                "[]" // 아직 옵션 관련된 UI가 없으니, 우선 비어있는 []로
+
+
+            )
+            Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
+        }
+
+
 
     }
 

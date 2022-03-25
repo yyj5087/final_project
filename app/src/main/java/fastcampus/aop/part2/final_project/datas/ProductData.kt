@@ -11,6 +11,7 @@ class ProductData(
     val created_at: String,
     val product_detail_images: List<productDetailImagesData>,
     val large_category_info: List<LargeCategoryData>,
+    val product_main_images: List<productMainImagesData>,
 
 
 

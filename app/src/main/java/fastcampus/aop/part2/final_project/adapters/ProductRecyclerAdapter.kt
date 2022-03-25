@@ -29,7 +29,7 @@ class ProductRecyclerAdapter(
             categoryPrice.text = "${data.getFormattedPrice()}원"
 
 
-            Glide.with(mContext).load(data.product_detail_images).into(productImg)
+            Glide.with(mContext).load(data.product_main_images[0].image_url).into(productImg)
 
 
 

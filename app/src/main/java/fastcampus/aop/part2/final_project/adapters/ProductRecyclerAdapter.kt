@@ -1,14 +1,17 @@
 package fastcampus.aop.part2.final_project.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
+import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
 import fastcampus.aop.part2.final_project.datas.ProductData
 
 class ProductRecyclerAdapter(
@@ -31,9 +34,15 @@ class ProductRecyclerAdapter(
 
             Glide.with(mContext).load(data.product_main_images[0].image_url).into(productImg)
 
+            itemView.setOnClickListener {
+                val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)
+                myIntent.putExtra("name", data.name)
+                myIntent.putExtra("original_price", data.original_price)
+                myIntent.putExtra("image_url", data.product_main_images[0].image_url)
+                mContext.startActivity(myIntent)
 
 
-
+            }
 
         }
 

@@ -7,7 +7,7 @@ class DataResponse(
         val token: String,
 
         val todays_hot_lists: List<ProductData>,
-        val largecategory: LargeCategoryData
+        val large_categories: List<LargeCategoryData>,
 
 ){
 }

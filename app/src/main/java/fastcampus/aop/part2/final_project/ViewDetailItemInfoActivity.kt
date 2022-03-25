@@ -9,11 +9,16 @@ import fastcampus.aop.part2.final_project.datas.ProductData
 class ViewDetailItemInfoActivity : BaseActivity() {
 
     lateinit var binding: ActivityViewDetailItemInfoBinding
-    lateinit var mCategoryData: ProductData
+    lateinit var mProductData: ProductData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_view_detail_item_info)
+
+        mProductData = intent.getSerializableExtra("name") as ProductData
+        mProductData = intent.getSerializableExtra("original_price") as ProductData
+        mProductData = intent.getSerializableExtra("image_url") as ProductData
+
 
 
 
@@ -29,6 +34,8 @@ class ViewDetailItemInfoActivity : BaseActivity() {
     }
 
     override fun setupValues() {
+
+
 
 
 

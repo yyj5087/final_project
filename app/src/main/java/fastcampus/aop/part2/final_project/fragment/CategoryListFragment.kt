@@ -44,14 +44,7 @@ class CategoryListFragment: BaseFragment() {
 
     override fun setupEvent() {
 
-        binding.categoryListView.setOnClickListener {
 
-//            val clickedCategoryItem = binding.categoryListView[]
-//
-//            val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)
-//            myIntent.putExtra("id", clickedCategoryItem)
-//            startActivity(myIntent)
-        }
 
 
     }

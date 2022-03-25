@@ -8,10 +8,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.adapters.LargeCategoryRecyclerAdapter
-import fastcampus.aop.part2.final_project.adapters.ProductRecyclerAdapter
-import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.databinding.LargecategoryItemListBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
+import fastcampus.aop.part2.final_project.datas.LargeCategoryData
 import fastcampus.aop.part2.final_project.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,7 +20,7 @@ class LargeCategoryFragment: BaseFragment() {
 
     lateinit var binding: LargecategoryItemListBinding
     lateinit var mLargeAdapter: LargeCategoryRecyclerAdapter
-    val mLargeCategoryList = ArrayList<ProductData>()
+    val mLargeCategoryList = ArrayList<LargeCategoryData>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,7 +60,7 @@ class LargeCategoryFragment: BaseFragment() {
                 if(response.isSuccessful){
                     val br = response.body()!!
 
-                    mLargeCategoryList.addAll(br.data.todays_hot_lists)
+                    mLargeCategoryList.addAll(br.data.large_categories)
                     mLargeAdapter.notifyDataSetChanged()
                 }
             }

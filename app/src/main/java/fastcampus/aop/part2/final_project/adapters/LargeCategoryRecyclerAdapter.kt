@@ -9,11 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.datas.ProductData
+import fastcampus.aop.part2.final_project.datas.LargeCategoryData
 
 class LargeCategoryRecyclerAdapter(
     val mContext: Context,
-    val mList: List<ProductData>
+    val mList: List<LargeCategoryData>
 ) : RecyclerView.Adapter<LargeCategoryRecyclerAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,9 +21,9 @@ class LargeCategoryRecyclerAdapter(
         val LargeGoodsItemName = view.findViewById<TextView>(R.id.LargeGoodsItemName)
 
 
-        fun bing(data: ProductData) {
+        fun bing(data: LargeCategoryData) {
 
-            Glide.with(mContext).load(data.LargeCategoryData.icon_url).into(LargecategoryLogo)
+            Glide.with(mContext).load(data.icon_url).into(LargecategoryLogo)
             LargeGoodsItemName.text = data.name
 
 

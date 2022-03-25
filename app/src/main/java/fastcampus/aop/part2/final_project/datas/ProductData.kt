@@ -7,17 +7,10 @@ import java.util.*
 class ProductData(
     val id: Int,
     val name: String,
-    val icon_url: String,
-    val large_category_id: Int,
     val original_price: Int,
-    val sale_price:  Int,
-    val index: Int,
-    val product_id: Int,
-    val image_url: String,
-    val description: String,
-    val description_content: String,
     val created_at: String,
-    val option_id: Int,
+    val product_detail_images: List<productDetailImagesData>,
+    val large_category_info: List<LargeCategoryData>,
 
 
 

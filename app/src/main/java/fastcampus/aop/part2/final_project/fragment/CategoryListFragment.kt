@@ -46,11 +46,11 @@ class CategoryListFragment: BaseFragment() {
 
         binding.categoryListView.setOnClickListener {
 
-            val clickedCategoryItem = binding.categoryListView[]
-
-            val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)
-            myIntent.putExtra("id", clickedCategoryItem)
-            startActivity(myIntent)
+//            val clickedCategoryItem = binding.categoryListView[]
+//
+//            val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)
+//            myIntent.putExtra("id", clickedCategoryItem)
+//            startActivity(myIntent)
         }
 
 

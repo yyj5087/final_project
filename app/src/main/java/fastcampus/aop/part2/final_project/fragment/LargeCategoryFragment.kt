@@ -61,7 +61,7 @@ class LargeCategoryFragment: BaseFragment() {
                 if(response.isSuccessful){
                     val br = response.body()!!
 
-                    mLargeCategoryList.addAll(br.data.large_categories)
+                    mLargeCategoryList.addAll(br.data.todays_hot_lists)
                     mLargeAdapter.notifyDataSetChanged()
                 }
             }

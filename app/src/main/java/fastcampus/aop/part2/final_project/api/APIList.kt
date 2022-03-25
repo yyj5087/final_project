@@ -39,4 +39,15 @@ interface APIList {
     @GET("/todayshot")
     fun getRequestItem(
     ) : Call<BasicResponse>
+
+    @GET("/largecategory")
+    fun getRequestLargeCategory(
+    ) : Call<BasicResponse>
+
+    @GET("large_category_id")
+    fun getRequestLargeCategoryId(
+
+    ) :  Call<BasicResponse>
+
+
 }

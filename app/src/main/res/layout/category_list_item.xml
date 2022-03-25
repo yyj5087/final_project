@@ -8,7 +8,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/categoryLogo"
+        android:id="@+id/LargecategoryLogo"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@mipmap/ic_launcher"/>
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/goodsItemName"
+            android:id="@+id/LargeGoodsItemName"
             android:text="상품종목"
             android:textSize="15sp"
             android:textStyle="bold"

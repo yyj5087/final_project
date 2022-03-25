@@ -5,14 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.TextView
-import com.bumptech.glide.Glide
-import com.willy.ratingbar.ScaleRatingBar
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.datas.BarketData
-import fastcampus.aop.part2.final_project.datas.CategoryData
-import fastcampus.aop.part2.final_project.datas.CategoryItemData
 import fastcampus.aop.part2.final_project.datas.MyInfoData
 
 class MyInfoAdapter(

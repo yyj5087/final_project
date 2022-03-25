@@ -23,7 +23,7 @@ class LargeCategoryRecyclerAdapter(
 
         fun bing(data: ProductData) {
 
-            Glide.with(mContext).load(data.large_category_info).into(LargecategoryLogo)
+            Glide.with(mContext).load(data.icon_url).into(LargecategoryLogo)
             LargeGoodsItemName.text = data.name
 
 

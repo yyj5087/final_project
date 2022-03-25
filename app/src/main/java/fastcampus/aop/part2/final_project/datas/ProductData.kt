@@ -10,8 +10,9 @@ class ProductData(
     val original_price: Int,
     val created_at: String,
     val product_detail_images: List<productDetailImagesData>,
-    val large_category_info: List<LargeCategoryData>,
     val product_main_images: List<productMainImagesData>,
+    val index: Int,
+    val icon_url: String,
 
 
 

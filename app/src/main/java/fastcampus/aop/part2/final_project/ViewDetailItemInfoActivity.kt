@@ -15,9 +15,7 @@ class ViewDetailItemInfoActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_view_detail_item_info)
 
-        mProductData = intent.getSerializableExtra("name") as ProductData
-        mProductData = intent.getSerializableExtra("original_price") as ProductData
-        mProductData = intent.getSerializableExtra("image_url") as ProductData
+        mProductData = intent.getSerializableExtra("product") as ProductData
 
 
 
@@ -29,11 +27,22 @@ class ViewDetailItemInfoActivity : BaseActivity() {
 
     override fun setupEvent() {
 
+        val inputKeyword = binding.number
+        apiList.getRequestAddItem(
+            mProductData.id,
+            mProductData
 
+        )
 
     }
 
     override fun setupValues() {
+
+
+        Glide.with(mContext).load(mProductData.product_main_images[0].image_url).into(binding.categoryImg)
+        binding.categoryName.text = mProductData.name
+        binding.productPrice.text = mProductData.original_price.toString()
+        binding.productPrice.text = mProductData.getFormattedPrice()
 
 
 

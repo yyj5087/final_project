@@ -36,9 +36,7 @@ class ProductRecyclerAdapter(
 
             itemView.setOnClickListener {
                 val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)
-                myIntent.putExtra("name", data.name)
-                myIntent.putExtra("original_price", data.original_price)
-                myIntent.putExtra("image_url", data.product_main_images[0].image_url)
+                myIntent.putExtra("product", data)
                 mContext.startActivity(myIntent)
 
 

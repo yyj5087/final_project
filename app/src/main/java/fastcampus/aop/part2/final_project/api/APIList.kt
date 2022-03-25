@@ -44,10 +44,20 @@ interface APIList {
     fun getRequestLargeCategory(
     ) : Call<BasicResponse>
 
-    @GET("large_category_id")
+    @GET("/largecategory/{large_category_id}")
     fun getRequestLargeCategoryId(
-
+        @Field("large_category_id") largeCategoryId: Int,
     ) :  Call<BasicResponse>
+
+    @FormUrlEncoded
+    @POST("/cart")
+    fun getRequestAddItem(
+        @Field("product_id") product_ai: Int,
+        @Field("quantity") quantity: Int,
+        @Field("option_info_str") option_info_str: String,
+    ) : Call<BasicResponse>
+
+
 
 
 }

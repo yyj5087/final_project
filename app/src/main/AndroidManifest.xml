@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Final_project"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".CartAddItemActivity"
-            android:exported="false" />
+        
         <activity
             android:name=".ViewDetailItemInfoActivity"
             android:exported="false" />

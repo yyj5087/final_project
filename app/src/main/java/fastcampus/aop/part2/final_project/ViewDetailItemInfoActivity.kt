@@ -1,17 +1,23 @@
 package fastcampus.aop.part2.final_project
 
+import android.app.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
 import fastcampus.aop.part2.final_project.datas.ProductData
+import fastcampus.aop.part2.final_project.fragment.BarkerFragment
 
 class ViewDetailItemInfoActivity : BaseActivity() {
 
     lateinit var binding: ActivityViewDetailItemInfoBinding
     lateinit var mProductData: ProductData
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +61,8 @@ class ViewDetailItemInfoActivity : BaseActivity() {
             )
             Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
 
-            val myIntent = Intent(mContext, CartAddItemActivity::class.java)
-            myIntent.putExtra("cartitem", mProductData)
-            startActivity(myIntent)
+
+
         }
 
 
@@ -67,15 +72,13 @@ class ViewDetailItemInfoActivity : BaseActivity() {
     override fun setupValues() {
 
 
+
+
+
         Glide.with(mContext).load(mProductData.product_main_images[0].image_url).into(binding.categoryImg)
         binding.categoryName.text = mProductData.name
         binding.productPrice.text = mProductData.original_price.toString()
         binding.productPrice.text = mProductData.getFormattedPrice()
-
-
-
-
-
 
 
 

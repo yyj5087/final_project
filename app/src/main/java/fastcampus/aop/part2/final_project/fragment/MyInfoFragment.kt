@@ -46,6 +46,8 @@ class MyInfoFragment: BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
+
         setupEvent()
         setupValue()
 

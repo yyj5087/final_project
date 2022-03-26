@@ -57,6 +57,10 @@ interface APIList {
         @Field("option_info_str") option_info_str: String,
     ) : Call<BasicResponse>
 
+    @GET("/cart")
+    fun getRequestAddItemCheck(
+    ) : Call<BasicResponse>
+
 
 
 

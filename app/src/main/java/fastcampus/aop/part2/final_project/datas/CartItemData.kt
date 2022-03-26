@@ -4,17 +4,13 @@ import java.io.Serializable
 import java.text.NumberFormat
 import java.util.*
 
-class ProductData(
+class CartItemData(
     val id: Int,
     val name: String,
     val original_price: Int,
-    val created_at: String,
-    val product_detail_images: List<productDetailImagesData>,
-    val product_main_images: List<productMainImagesData>,
-    val index: Int,
-    val icon_url: String,
-    val largecategory: LargeCategoryData,
-    val product_infos: List<CartItemData>,
+    val product_id: Int,
+    val quantity: Int,
+    val option_info_str: String,
 
 
 

@@ -8,8 +8,12 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
+import fastcampus.aop.part2.final_project.datas.BasicResponse
 import fastcampus.aop.part2.final_project.datas.ProductData
 import fastcampus.aop.part2.final_project.fragment.BarkerFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ViewDetailItemInfoActivity : BaseActivity() {
 
@@ -56,10 +60,22 @@ class ViewDetailItemInfoActivity : BaseActivity() {
                 mProductData.id,
                 quantity,
                 "[]" // 아직 옵션 관련된 UI가 없으니, 우선 비어있는 []로
+            ).enqueue(object : Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful){
+                        Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                }
 
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-            )
-            Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
+                }
+
+            })
 
 
 

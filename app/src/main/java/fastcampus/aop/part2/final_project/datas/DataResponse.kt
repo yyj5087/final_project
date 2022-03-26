@@ -8,6 +8,6 @@ class DataResponse(
 
         val todays_hot_lists: List<ProductData>,
         val large_categories: List<LargeCategoryData>,
-
+        val product_infos: List<ProductData>,
 ) : Serializable{
 }

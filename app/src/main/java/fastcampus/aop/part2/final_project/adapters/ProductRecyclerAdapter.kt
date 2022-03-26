@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
-import fastcampus.aop.part2.final_project.datas.ProductData
+import fastcampus.aop.part2.final_project.datas.product.ProductData
 
 class ProductRecyclerAdapter(
     val mContext: Context,

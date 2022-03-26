@@ -1,6 +1,5 @@
 package fastcampus.aop.part2.final_project.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
 import fastcampus.aop.part2.final_project.adapters.RequestCartRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.MyAddRecyclerviewBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.ProductData
+import fastcampus.aop.part2.final_project.datas.prodictionfos.productinfosData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,8 +19,8 @@ class BarkerFragment: BaseFragment() {
 
     lateinit var binding: MyAddRecyclerviewBinding
     lateinit var mBarketAdapter: RequestCartRecyclerAdapter
-    lateinit var mProductData: ProductData
-    val mCartItemList = ArrayList<ProductData>()
+    lateinit var mProductData: productinfosData
+    val mCartItemList = ArrayList<productinfosData>()
 
 
     override fun onCreateView(
@@ -61,16 +59,21 @@ class BarkerFragment: BaseFragment() {
 
 
     }
+    override fun onResume() {
+        super.onResume()
 
+        getDataFromViewDetailItemInfoActivity()
+    }
 
 
     fun getDataFromViewDetailItemInfoActivity(){
         apiList.getRequestAddItemCheck().enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
+
                     mCartItemList.clear()
                     val br = response.body()!!
-                    mCartItemList.addAll(br.data.todays_hot_lists)
+                    mCartItemList.addAll(br.data.carts)
                     mBarketAdapter.notifyDataSetChanged()
                 }
             }

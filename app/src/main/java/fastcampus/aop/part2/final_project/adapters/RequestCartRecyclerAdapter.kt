@@ -1,23 +1,19 @@
 package fastcampus.aop.part2.final_project.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
-import fastcampus.aop.part2.final_project.datas.ProductData
-import org.w3c.dom.Text
+import fastcampus.aop.part2.final_project.datas.prodictionfos.productinfosData
 
 class RequestCartRecyclerAdapter(
     val mContext: Context,
-    val mList: List<ProductData>
+    val mList: List<productinfosData>
 ) : RecyclerView.Adapter<RequestCartRecyclerAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,12 +24,12 @@ class RequestCartRecyclerAdapter(
         val viewDetailPrice2 = view.findViewById<TextView>(R.id.viewDetailPrice2)
         val viewDetailName = view.findViewById<TextView>(R.id.viewDetailName)
 
-        fun bing(data: ProductData) {
+        fun bing(data: productinfosData) {
 
-            Glide.with(mContext).load(data.product_main_images[0].image_url).into(viewDetailImg)
-            viewDetailPrice.text = data.original_price.toString()
-            viewDetailPrice2.text = data.original_price.toString()
-            viewDetailName.text = data.name
+            Glide.with(mContext).load(data.product_info).into(viewDetailImg)
+            viewDetailPrice.text = data.product_info.toString()
+            viewDetailPrice2.text = data.product_info.toString()
+            viewDetailName.text = data.product_info.toString()
         }
 
     }

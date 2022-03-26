@@ -1,6 +1,5 @@
 package fastcampus.aop.part2.final_project.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
 import fastcampus.aop.part2.final_project.adapters.ProductRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.ProductData
+import fastcampus.aop.part2.final_project.datas.product.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

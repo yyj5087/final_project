@@ -1,16 +1,12 @@
 package fastcampus.aop.part2.final_project
 
-import android.app.Fragment
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.ProductData
-import fastcampus.aop.part2.final_project.fragment.BarkerFragment
+import fastcampus.aop.part2.final_project.datas.product.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

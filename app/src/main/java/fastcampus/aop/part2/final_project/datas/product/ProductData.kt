@@ -1,5 +1,6 @@
-package fastcampus.aop.part2.final_project.datas
+package fastcampus.aop.part2.final_project.datas.product
 
+import fastcampus.aop.part2.final_project.datas.prodictionfos.productinfosData
 import java.io.Serializable
 import java.text.NumberFormat
 import java.util.*
@@ -14,13 +15,13 @@ class ProductData(
     val index: Int,
     val icon_url: String,
     val largecategory: LargeCategoryData,
-    val product_infos: List<productinfosData>,
+    val product_infos: productinfosData,
 
 
 
 
 
-) : Serializable{
+    ) : Serializable{
 
     fun getFormattedPrice(): String{
         if(this.original_price < 100000000){

@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.datas.LargeCategoryData
+import fastcampus.aop.part2.final_project.datas.product.LargeCategoryData
 
 class LargeCategoryRecyclerAdapter(
     val mContext: Context,

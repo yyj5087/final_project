@@ -1,5 +1,6 @@
 package fastcampus.aop.part2.final_project
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -53,6 +54,10 @@ class ViewDetailItemInfoActivity : BaseActivity() {
 
             )
             Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
+
+            val myIntent = Intent(mContext, CartAddItemActivity::class.java)
+            myIntent.putExtra("cartitem", mProductData)
+            startActivity(myIntent)
         }
 
 

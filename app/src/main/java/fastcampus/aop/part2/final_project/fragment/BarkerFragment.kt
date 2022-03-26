@@ -53,6 +53,7 @@ class BarkerFragment: BaseFragment() {
 
     override fun setupValue() {
 
+        getDataFromViewDetailItemInfoActivity()
         mBarketAdapter = RequestCartRecyclerAdapter(mContext, mCartItemList)
         binding.CartListView.adapter = mBarketAdapter
         binding.CartListView.layoutManager = LinearLayoutManager(mContext)
@@ -60,18 +61,16 @@ class BarkerFragment: BaseFragment() {
 
 
     }
-    override fun onResume() {
-        super.onResume()
 
-        getDataFromViewDetailItemInfoActivity()
-    }
+
+
     fun getDataFromViewDetailItemInfoActivity(){
         apiList.getRequestAddItemCheck().enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
                     mCartItemList.clear()
                     val br = response.body()!!
-                    mCartItemList.addAll(br.data.product_infos)
+                    mCartItemList.addAll(br.data.todays_hot_lists)
                     mBarketAdapter.notifyDataSetChanged()
                 }
             }

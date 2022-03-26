@@ -14,7 +14,7 @@ class ProductData(
     val index: Int,
     val icon_url: String,
     val largecategory: LargeCategoryData,
-    val product_infos: List<CartItemData>,
+    val product_infos: List<productinfosData>,
 
 
 

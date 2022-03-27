@@ -10,7 +10,7 @@ import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.adapters.ProductRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.CateloryBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.product.ProductData
+import fastcampus.aop.part2.final_project.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

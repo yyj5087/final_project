@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.product.ProductData
+import fastcampus.aop.part2.final_project.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

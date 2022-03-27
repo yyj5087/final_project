@@ -10,7 +10,7 @@ import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.adapters.RequestCartRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.MyAddRecyclerviewBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
-import fastcampus.aop.part2.final_project.datas.prodictionfos.productinfosData
+import fastcampus.aop.part2.final_project.datas.CartItemData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,8 +19,7 @@ class BarkerFragment: BaseFragment() {
 
     lateinit var binding: MyAddRecyclerviewBinding
     lateinit var mBarketAdapter: RequestCartRecyclerAdapter
-    lateinit var mProductData: productinfosData
-    val mCartItemList = ArrayList<productinfosData>()
+    val mCartItemList = ArrayList<CartItemData>()
 
 
     override fun onCreateView(

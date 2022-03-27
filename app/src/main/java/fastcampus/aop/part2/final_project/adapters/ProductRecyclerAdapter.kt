@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
 import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
-import fastcampus.aop.part2.final_project.datas.product.ProductData
+import fastcampus.aop.part2.final_project.datas.ProductData
 
 class ProductRecyclerAdapter(
     val mContext: Context,

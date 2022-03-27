@@ -9,11 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fastcampus.aop.part2.final_project.R
-import fastcampus.aop.part2.final_project.datas.prodictionfos.productinfosData
+import fastcampus.aop.part2.final_project.datas.CartItemData
 
 class RequestCartRecyclerAdapter(
     val mContext: Context,
-    val mList: List<productinfosData>
+    val mList: List<CartItemData>
 ) : RecyclerView.Adapter<RequestCartRecyclerAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -24,12 +24,13 @@ class RequestCartRecyclerAdapter(
         val viewDetailPrice2 = view.findViewById<TextView>(R.id.viewDetailPrice2)
         val viewDetailName = view.findViewById<TextView>(R.id.viewDetailName)
 
-        fun bing(data: productinfosData) {
+        fun bing(data: CartItemData) {
 
-            Glide.with(mContext).load(data.product_info).into(viewDetailImg)
-            viewDetailPrice.text = data.product_info.toString()
-            viewDetailPrice2.text = data.product_info.toString()
-            viewDetailName.text = data.product_info.toString()
+            Glide.with(mContext).load(data.icon_url).into(viewDetailImg)
+
+            viewDetailPrice.text = data.originalprice.toString()
+            viewDetailPrice2.text = data.originalprice.toString()
+            viewDetailName.text = data.name
         }
 
     }

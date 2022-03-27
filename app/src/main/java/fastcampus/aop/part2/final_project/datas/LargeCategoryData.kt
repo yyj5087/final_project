@@ -1,4 +1,4 @@
-package fastcampus.aop.part2.final_project.datas.product
+package fastcampus.aop.part2.final_project.datas
 
 import java.io.Serializable
 

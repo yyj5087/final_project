@@ -20,24 +20,23 @@
                 android:orientation="vertical">
 
 
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/productThumbnailViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp" />
+
                 <LinearLayout
+                    android:id="@+id/optionListLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/categoryImg"
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_launcher" />
 
 
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/categoryName"
+                    android:id="@+id/txtProductName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -118,7 +117,7 @@
                                 android:text="-" />
 
                             <TextView
-                                android:id="@+id/number"
+                                android:id="@+id/txtQuantity"
                                 android:layout_width="60dp"
                                 android:layout_height="40dp"
                                 android:background="@drawable/light_gray_border_box"
@@ -169,12 +168,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/txtSalePercent"
                                     android:text="33%"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"/>
                                 <TextView
                                     android:text="240000"
-                                    android:id="@+id/salePrice"
+                                    android:id="@+id/txtOriginalPrice"
                                     android:textStyle="normal"
                                     android:layout_marginStart="5dp"
                                     android:layout_width="wrap_content"
@@ -184,7 +184,9 @@
                             </LinearLayout>
 
                             <TextView
-                                android:id="@+id/productPrice"
+                                android:id="@+id/txtSalePrice"
+                                android:textSize="20sp"
+                                android:textColor="@color/sale_price_text_color"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="1000000" />

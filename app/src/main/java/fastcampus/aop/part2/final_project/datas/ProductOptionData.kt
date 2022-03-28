@@ -2,11 +2,11 @@ package fastcampus.aop.part2.final_project.datas
 
 import java.io.Serializable
 
-class productMainImagesData(
+class ProductOptionData(
     val id: Int,
-    val index: Int,
+    val name: String,
     val product_id: Int,
-    val image_url: String
+    val option_values: List<ProductOptionValueData>
 
 ) : Serializable {
 }

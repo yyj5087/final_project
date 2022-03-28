@@ -25,6 +25,12 @@ abstract class BaseActivity: AppCompatActivity() {
         apiList = retrofit.create(APIList::class.java)
     }
 
+    override fun setTitle(title: CharSequence?) {
+//        super.setTitle(title)
+
+        txtTitle.text = title
+    }
+
     abstract fun setupEvent()
     abstract fun setupValues()
 }

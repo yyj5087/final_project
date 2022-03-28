@@ -5,6 +5,7 @@ import java.io.Serializable
 class DataResponse(
         val user: UserData,
         val token: String,
+        val product: ProductData,
 
         val todays_hot_lists: List<ProductData>,
         val large_categories: List<LargeCategoryData>,

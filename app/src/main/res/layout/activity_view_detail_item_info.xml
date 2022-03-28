@@ -59,6 +59,9 @@
                         android:id="@+id/ratingBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:srb_rating="5"
+                        app:srb_starHeight="20dp"
+                        app:srb_starWidth="20dp"
                         app:srb_isIndicator="true"
                         app:srb_stepSize="0.5" />
 

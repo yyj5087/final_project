@@ -17,6 +17,7 @@ class CartItemData(
     val index: Int,
     val large_category_id: Int,
     val name: String,
+    val product_info: ProductData,
 
 
 

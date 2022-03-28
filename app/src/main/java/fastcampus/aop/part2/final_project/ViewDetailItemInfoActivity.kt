@@ -1,9 +1,14 @@
 package fastcampus.aop.part2.final_project
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import fastcampus.aop.part2.final_project.databinding.ActivityViewDetailItemInfoBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
 import fastcampus.aop.part2.final_project.datas.ProductData
@@ -22,12 +27,7 @@ class ViewDetailItemInfoActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_view_detail_item_info)
-
         mProductData = intent.getSerializableExtra("product") as ProductData
-
-
-
-
         setupEvent()
         setupValues()
 
@@ -62,9 +62,31 @@ class ViewDetailItemInfoActivity : BaseActivity() {
                     response: Response<BasicResponse>
                 ) {
                     if (response.isSuccessful){
-                        Toast.makeText(mContext, "장바구니에 물건이 담겼습니다.", Toast.LENGTH_SHORT).show()
-                        finish()
+                        val customView = LayoutInflater.from(mContext).inflate(R.layout.fragment_cart_bottom_sheet, null)
+                        val dialog = BottomSheetDialog(mContext)
+
+                        val customImg = customView.findViewById<ImageView>(R.id.imgProductThumbnail)
+                        val imgClose = customView.findViewById<ImageView>(R.id.imgClose)
+                        val btnGoCart = customView.findViewById<TextView>(R.id.btnGoCart)
+
+                        if (mProductData.product_main_images.isNotEmpty()) {
+                            Glide.with(mContext).load(mProductData.product_main_images[0].image_url).into(customImg)
+                        }
+                        dialog.setContentView(customView)
+                        dialog.show()
+
+                        imgClose.setOnClickListener {
+                            dialog.dismiss()
+                        }
+                        btnGoCart.setOnClickListener {
+                            val myIntent = Intent(mContext, MainActivity::class.java)
+                            myIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            myIntent.putExtra("startFragmentIndex", 2)
+                            startActivity(myIntent)
+                        }
                     }
+
+
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {

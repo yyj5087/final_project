@@ -26,11 +26,11 @@ class RequestCartRecyclerAdapter(
 
         fun bing(data: CartItemData) {
 
-            Glide.with(mContext).load(data.icon_url).into(viewDetailImg)
+            Glide.with(mContext).load(data.product_info.product_detail_images).into(viewDetailImg)
 
-            viewDetailPrice.text = data.originalprice.toString()
-            viewDetailPrice2.text = data.originalprice.toString()
-            viewDetailName.text = data.name
+            viewDetailPrice.text = data.product_info.original_price.toString()
+            viewDetailPrice2.text = data.product_info.original_price.toString()
+            viewDetailName.text = data.product_info.name
         }
 
     }

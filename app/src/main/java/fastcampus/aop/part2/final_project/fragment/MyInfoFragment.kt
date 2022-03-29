@@ -22,9 +22,11 @@ import fastcampus.aop.part2.final_project.datas.BasicResponse
 import fastcampus.aop.part2.final_project.utils.ContextUtil
 import fastcampus.aop.part2.final_project.utils.URIPathHelper
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
@@ -122,7 +124,22 @@ class MyInfoFragment: BaseFragment() {
 
     override fun setupValue() {
 
+        apiList.getRequestMyInfo().enqueue(object : Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful){
+                    val br = response.body()!!
 
+                    binding.txtNickname.text = br.data.user.nick_name
+
+                    Glide.with(mContext).load(br.data.user.profile_img_url).into(binding.imgProfile)
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
 
 
     }
@@ -135,7 +152,7 @@ class MyInfoFragment: BaseFragment() {
 
                 val selectedImageUri = data?.data!!
                 val file = File(URIPathHelper().getPath(mContext, selectedImageUri))
-                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+                val fileReqBody = RequestBody.create("image/*".toMediaType(), file)
                 val multiPartBody = MultipartBody.Part.createFormData("profile_image", "myProfile.jpg", fileReqBody)
 
                 apiList.putRequestProfileImg(

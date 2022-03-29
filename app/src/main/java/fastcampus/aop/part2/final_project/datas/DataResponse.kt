@@ -12,5 +12,8 @@ class DataResponse(
         val todays_hot_lists: List<ProductData>,
         val large_categories: List<LargeCategoryData>,
         val carts: List<CartItemData>,
+        val banners: List<BannersData>,
+        val user_all_address: List<ShipmentInfoData>,
+        val basic_address: ShipmentInfoData?,
 ) : Serializable{
 }

@@ -13,11 +13,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Final_project"
         android:usesCleartextTraffic="true">
-        
+        <activity
+            android:name=".ShipmentInfoListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditShipmentInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PurchaseActivity"
+            android:exported="false" />
         <activity
             android:name=".ViewDetailItemInfoActivity"
             android:exported="false" />
-
         <activity
             android:name=".OrderHistoryActivity"
             android:exported="false" />

@@ -19,18 +19,15 @@ class ProductRecyclerAdapter(
 ) : RecyclerView.Adapter<ProductRecyclerAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val categoryName = view.findViewById<TextView>(R.id.categoryName)
-        val categoryPrice = view.findViewById<TextView>(R.id.categoryPrice)
-        val productImg = view.findViewById<ImageView>(R.id.productImg)
+
+
 
         fun bing(data: ProductData) {
 
-            categoryName.text = data.name
-            categoryPrice.text = data.original_price.toString()
-            categoryPrice.text = "${data.getFormattedPrice()}원"
 
 
-            Glide.with(mContext).load(data.product_main_images[0].image_url).into(productImg)
+
+
 
             itemView.setOnClickListener {
                 val myIntent = Intent(mContext, ViewDetailItemInfoActivity::class.java)

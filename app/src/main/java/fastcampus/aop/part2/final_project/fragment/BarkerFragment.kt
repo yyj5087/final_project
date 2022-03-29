@@ -177,7 +177,7 @@ class BarkerFragment: BaseFragment() {
         var shipmentFee = 0
 
         if (sum < 30000){
-            shipmentFee = 30000
+            shipmentFee = 3000
         }
         binding.txtShipmentFee.text = NumberFormat.getNumberInstance().format(shipmentFee)
 

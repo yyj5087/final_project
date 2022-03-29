@@ -1,5 +1,7 @@
 package fastcampus.aop.part2.final_project.fragment
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -103,7 +105,7 @@ class BarkerFragment: BaseFragment() {
             }
             sum += shipmentFee
 
-            val myIntent = Intent(mContext, )
+
         }
     }
 
@@ -113,15 +115,10 @@ class BarkerFragment: BaseFragment() {
 
     override fun setupValue() {
 
-
-
-
-
-    }
-    override fun onResume() {
-        super.onResume()
-
         getDataFromViewDetailItemInfoActivity()
+
+
+
     }
 
 
@@ -144,12 +141,15 @@ class BarkerFragment: BaseFragment() {
                         binding.putchaseLayout.visibility = View.VISIBLE
 
                         mCartItemList.addAll(br.data.carts)
+
+                        br.data.carts.forEach {
+                            val row = makeCartRow(it)
+
+                            binding.cartListLayout.addView(row)
+
                     }
 
-                    br.data.carts.forEach {
-                        val row
 
-                        binding.cartListLayout.addView(row)
                     }
                 }
             }
@@ -213,29 +213,93 @@ class BarkerFragment: BaseFragment() {
 
         cartCountSpinner.setSelection(data.quantity - 1)
 
-        if(data.product_info.product_main_images.isNotEmpty()){
-            Glide.with(mContext).load(data.product_info.product_main_images[0].image_url).into(imgProductThumbnail)
+        if (data.product_info.product_main_images.isNotEmpty()) {
+            Glide.with(mContext).load(data.product_info.product_main_images[0].image_url)
+                .into(imgProductThumbnail)
         }
-        for(option in data.option_info){
-            val optionRow = LayoutInflater.from(mContext).inflate(R.layout.selected_option_list_item, null)
+        for (option in data.option_info) {
+            val optionRow =
+                LayoutInflater.from(mContext).inflate(R.layout.selected_option_list_item, null)
 
-            val txtSelectedOptionValue = optionRow.findViewById<TextView>(R.id.txtSelectedOptionValue)
+            val txtSelectedOptionValue =
+                optionRow.findViewById<TextView>(R.id.txtSelectedOptionValue)
 
             txtSelectedOptionValue.text = "- ${option.option.name} : ${option.value.name}"
 
             selectedOptionsLayout.addView(optionRow)
         }
-        fun getItemTotalPrice() : Int {
+        fun getItemTotalPrice(): Int {
 
             return if (productCheckBox.isChecked) {
-                data.quantity = cartCountSpinner.selectedItemPosition+1
+                data.quantity = cartCountSpinner.selectedItemPosition + 1
                 data.quantity * data.product_info.sale_price
-            }
-            else {
+            } else {
                 0
             }
 
 
         }
+
+        productCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+            data.isBuy = isChecked
+
+            txtItemTotalPrice.text = NumberFormat.getNumberInstance().format(getItemTotalPrice())
+            calculateTotalPrice()
+        }
+        if (binding.selectAllCheckBox.isChecked){
+            productCheckBox.isChecked = true
+        }
+        cartCountSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, positon: Int, p3: Long) {
+
+                data.quantity = positon + 1
+                txtItemTotalPrice.text = NumberFormat.getNumberInstance().format(getItemTotalPrice())
+                calculateTotalPrice()
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
+        }
+        btnDelete.setOnClickListener {
+
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("장바구니 삭제")
+            alert.setMessage("정말 삭제 하겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
+
+                apiList.getRequestDeleteItem(
+                    data.id
+                ).enqueue(object : Callback<BasicResponse>{
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+                        if (response.isSuccessful){
+                            Toast.makeText(mContext, "장바구니에서 삭제했습니다.", Toast.LENGTH_SHORT).show()
+                            getDataFromViewDetailItemInfoActivity()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                    }
+
+                })
+
+
+            })
+            alert.setNegativeButton("취소", null)
+            alert.show()
+        }
+
+
+
+        return row
+    }
+
 
 }

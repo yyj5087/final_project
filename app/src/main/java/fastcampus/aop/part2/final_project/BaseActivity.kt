@@ -13,6 +13,7 @@ abstract class BaseActivity: AppCompatActivity() {
     lateinit var mContext: Context
 
     lateinit var apiList: APIList
+
     lateinit var txtTitle: TextView
     lateinit var btnAdd: ImageView
 
@@ -26,9 +27,9 @@ abstract class BaseActivity: AppCompatActivity() {
     }
 
     override fun setTitle(title: CharSequence?) {
-//        super.setTitle(title)
 
         txtTitle.text = title
+
     }
 
     abstract fun setupEvent()

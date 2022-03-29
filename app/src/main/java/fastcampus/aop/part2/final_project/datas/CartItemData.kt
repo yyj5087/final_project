@@ -8,8 +8,8 @@ class CartItemData(
     val id: Int,
     val product_id: Int,
     val user_id: Int,
-    val quantity: Int,
-    val isBuy: Boolean = false,
+    var quantity: Int,
+    var isBuy: Boolean = false,
     val product_info: ProductData,
     val option_info: List<CaryOptionData>,
 

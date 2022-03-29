@@ -19,7 +19,6 @@ class ProductRecyclerAdapter(
 ) : RecyclerView.Adapter<ProductRecyclerAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
         val categoryName = view.findViewById<TextView>(R.id.categoryName)
         val categoryPrice = view.findViewById<TextView>(R.id.categoryPrice)
         val productImg = view.findViewById<ImageView>(R.id.productImg)

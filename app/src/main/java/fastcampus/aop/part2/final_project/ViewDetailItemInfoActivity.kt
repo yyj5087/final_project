@@ -152,7 +152,7 @@ class ViewDetailItemInfoActivity : BaseActivity() {
         binding.txtSalePrice.text = WonFormatUtil.getWonFormat(mProductData.sale_price * buyQuantity)
         val salePercent = (((mProductData.original_price - mProductData.sale_price).toDouble() / mProductData.original_price.toDouble()) * 100).toInt()
 
-        binding.txtSalePrice.text = "${salePercent}%"
+        binding.txtSalePercent.text = "${salePercent}%"
 
         binding.txtQuantity.text = buyQuantity.toString()
     }
@@ -160,10 +160,13 @@ class ViewDetailItemInfoActivity : BaseActivity() {
     override fun setupValues() {
 
 
-        setTitle("상품 상세정보")
+
 
         binding.txtProductName.text = mProductData.name
+        setProductDataToUI()
 
+
+        getProductDetailFromServer()
     }
     private fun setProductDataToUI(){
         setQuantityAndPriceTxt()

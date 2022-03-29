@@ -66,6 +66,21 @@ interface APIList {
         @Path("product_id") id: Int,
     ): Call<BasicResponse>
 
+    @DELETE("/cart")
+    fun getRequestDeleteItem(
+        @Query("cart_id") cardId: Int,
+    ) : Call<BasicResponse>
+
+    @GET("/smallcategory/{small_category_id}/product")
+    fun getRequestProductsBySmallCategory(
+        @Path("small_category_id") id: Int,
+        @Query("large_category_id") largeCategoryId: Int,
+    ) : Call<BasicResponse>
+
+    @GET("/largecategory/{large_category_id}/smallcategory")
+    fun getRequestSmallCategory(
+        @Path("large_category_id") id: Int,
+    ) : Call<BasicResponse>
 
 
 

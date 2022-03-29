@@ -1,5 +1,6 @@
 package fastcampus.aop.part2.final_project.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import fastcampus.aop.part2.final_project.R
+import fastcampus.aop.part2.final_project.ViewCategoryDetailActivity
+import fastcampus.aop.part2.final_project.ViewDetailItemInfoActivity
 import fastcampus.aop.part2.final_project.adapters.LargeCategoryRecyclerAdapter
 import fastcampus.aop.part2.final_project.databinding.LargecategoryItemListBinding
 import fastcampus.aop.part2.final_project.datas.BasicResponse
@@ -42,13 +45,22 @@ class LargeCategoryFragment: BaseFragment() {
 
     override fun setupEvent() {
 
+        mLargeAdapter = LargeCategoryRecyclerAdapter(mContext, mLargeCategoryList)
+        mLargeAdapter.setOnItemClick(object : LargeCategoryRecyclerAdapter.OnItemClick{
+            override fun onItemClick(position: Int) {
+                val clickedCategoryData = mLargeCategoryList[position]
 
+                val myIntent = Intent(mContext, ViewCategoryDetailActivity::class.java)
+                myIntent.putExtra("category", clickedCategoryData)
+                startActivity(myIntent)
+            }
 
+        })
     }
 
     override fun setupValue() {
         getRequestLargeCategory()
-        mLargeAdapter = LargeCategoryRecyclerAdapter(mContext, mLargeCategoryList)
+
         binding.largeCategoryListView.adapter = mLargeAdapter
         binding.largeCategoryListView.layoutManager = LinearLayoutManager(mContext)
 
